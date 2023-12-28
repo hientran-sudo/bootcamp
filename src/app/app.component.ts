@@ -9,7 +9,8 @@ import {NgForm} from "@angular/forms";
 export class AppComponent {
   title = 'bootcamp';
 
-  onSubmit(){
-    
+  onSubmit(userDetails : NgForm){
+    console.log("Form Submitited " + userDetails.value.fName + " " + userDetails.value.lName);
+
   }
 }
