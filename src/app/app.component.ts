@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {User} from "./user";
 
@@ -10,6 +10,8 @@ import {User} from "./user";
 export class AppComponent {
   title = 'bootcamp';
   user: User = {};
+  dept : string[] =["Sales","IT"];
+  prizes: string[]=["Voucher","Gift Card"];
 
   constructor(){
     this.user = new User();

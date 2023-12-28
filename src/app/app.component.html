@@ -21,6 +21,24 @@
   </div> 
   <br />
 
+  <div>
+    <label for="dept">Department: </label>
+    <select name="dept" ngModel="dept">
+      <option value="sales">Sales</option>
+      <option value="sales">IT</option>
+    </select>
+  </div>
+  <br />
+
+  <div>
+    <label for="prizes">Prize Preference: </label>
+    <div *ngFor="let prize of prizes">
+      <label>
+        <input type="radio" name="prizePreference" [value]="prize" required> {{ prize }} 
+      </label>
+    </div>
+  </div>
+
   <input type="submit" value="Submit" [disabled]="userDetails.invalid">
   <input type="submit" value="Reset" (click)='userDetails.reset()'>
   <br />
