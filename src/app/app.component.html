@@ -3,12 +3,14 @@
 <form #userDetails = "ngForm" (ngSubmit)="onSubmit(userDetails.value)" novalidate>
   <label for="fName">First name:</label>
   <input type="text" name="fName" [ngModel]="user.firstName" #fName="ngModel" required>
-  <div [hidden]="fName.valid">Please tell us your first name</div>
+  <div [hidden]="fName.valid || fName.pristine">Please tell us your first name</div>
   <br />
   <label for="lName">Last name:</label>
   <input type="text" name="lName" [ngModel]="user.lastName" #lName="ngModel" required>
   <div [hidden]="lName.valid">Please tell us your last name</div>
   <br />
-  <input type="submit" value="Submit" [disabled]="userDetails.invalid"><br />
+  <input type="submit" value="Submit" [disabled]="userDetails.invalid">
+  <input type="submit" value="Reset" (click)='userDetails.reset()'>
+  <br />
 </form>
 
