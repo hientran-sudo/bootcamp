@@ -1,10 +1,10 @@
 <span>{{ title }} app is running!</span>
 <hr />
-<form #userDetails = "ngForm" (ngSubmit)="onSubmit(userDetails)" novalidate>
+<form #userDetails = "ngForm" (ngSubmit)="onSubmit(userDetails.value)" novalidate>
   <label for="fName">First name:</label>
-  <input type="text" name="fName" ngModel><br />
+  <input type="text" name="fName" [ngModel]="user.firstName"><br />
   <label for="lName">Last name:</label>
-  <input type="text" name="lName" ngModel><br />
+  <input type="text" name="lName" [ngModel]="user.lastName"><br />
   <input type="submit" value="Submit"><br />
 </form>
 

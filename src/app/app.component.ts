@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {User} from "./user";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import {NgForm} from "@angular/forms";
 })
 export class AppComponent {
   title = 'bootcamp';
+  user: User = {};
 
-  onSubmit(userDetails : NgForm){
-    console.log("Form Submitited " + userDetails.value.fName + " " + userDetails.value.lName);
+  constructor(){
+    this.user = new User();
+  }
+
+  onSubmit(userDetails : User){
+    console.log(userDetails);
 
   }
 }
