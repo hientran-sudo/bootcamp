@@ -2,9 +2,9 @@
 <hr />
 <form #userDetails = "ngForm" (ngSubmit)="onSubmit(userDetails.value)" novalidate>
   <label for="fName">First name:</label>
-  <input type="text" name="fName" [ngModel]="user.firstName"><br />
+  <input type="text" name="fName" [ngModel]="user.firstName" required><br />
   <label for="lName">Last name:</label>
-  <input type="text" name="lName" [ngModel]="user.lastName"><br />
-  <input type="submit" value="Submit"><br />
+  <input type="text" name="lName" [ngModel]="user.lastName" required><br />
+  <input type="submit" value="Submit" [disabled]="userDetails.invalid"><br />
 </form>
 
