@@ -9,10 +9,18 @@
   <input type="text" name="lName" [ngModel]="user.lastName" #lName="ngModel" required>
   <div [hidden]="lName.valid">Please tell us your last name</div>
   <br />
-  <label for="email">Email:</label>
-  <input type="email" name="userMail" [ngModel]="user.email" #email="ngModel" required>
-  <div [hidden]="lName.valid">Please tell us your last name</div>
+  
+
+  <label for="userMail">Email:</label>
+  <input type="email" name="userMail" [ngModel]="user.email" #userMail="ngModel" required>
   <br />
+
+  <div *ngIf="userMail.touched && !userMail.valid">
+    <span *ngIf="userMail.errors?.['required']">Email is a required</span>
+    <span *ngIf="userMail.errors?.['pattern']">Please provide a valid email address</span>
+  </div> 
+  <br />
+
   <input type="submit" value="Submit" [disabled]="userDetails.invalid">
   <input type="submit" value="Reset" (click)='userDetails.reset()'>
   <br />
