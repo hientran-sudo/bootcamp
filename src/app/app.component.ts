@@ -8,7 +8,7 @@ import {User} from "./user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('userDetails') userDetailsForm : NgForm
+  @ViewChild('userDetails') userDetailsForm! : NgForm
   user: User = {};
   dept : string[] =["Sales","IT"];
   prizes: string[]=["Voucher","Gift Card"];
