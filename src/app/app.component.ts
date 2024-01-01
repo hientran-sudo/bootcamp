@@ -23,6 +23,6 @@ export class AppComponent {
     console.log(this.userDetailsForm.value);
   }
   //suggestEmail(event :any){
-  //  this.userDetailsForm.form.patchValue (userMail : this.user.firstName + " " + this.user.lastName + "@skillsoft.com");
+    //this.userDetailsForm.form.patchValue();
   //}
 }
