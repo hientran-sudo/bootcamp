@@ -14,12 +14,14 @@ export class ReactformComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetails = new FormGroup({
-      firstName: new FormControl(null,Validators.required),
+      firstName: new FormControl(null,[Validators.required,Validators.minLength(2)]),
       lastName: new FormControl(null,Validators.required),
     })
   }
   onSubmit (){
-    console.log(this.userDetails.value)
+    console.log(this.userDetails.value);
   }
-
+  get firstName(){
+    return this.userDetails.get('firstName')!;
+  }
 }
