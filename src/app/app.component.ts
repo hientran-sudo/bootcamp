@@ -8,17 +8,21 @@ import {User} from "./user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bootcamp';
+  @ViewChild('userDetails') userDetailsForm : NgForm
   user: User = {};
   dept : string[] =["Sales","IT"];
   prizes: string[]=["Voucher","Gift Card"];
+  selectedPrize: string = "";
 
   constructor(){
     this.user = new User();
+    this.selectedPrize = this.prizes[0];
   }
 
   onSubmit(userDetails : User){
-    console.log(userDetails);
-
+    console.log(this.userDetailsForm.value);
   }
+  //suggestEmail(event :any){
+  //  this.userDetailsForm.form.patchValue (userMail : this.user.firstName + " " + this.user.lastName + "@skillsoft.com");
+  //}
 }
