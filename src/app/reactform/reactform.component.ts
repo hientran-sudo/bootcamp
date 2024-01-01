@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactform',
@@ -16,6 +16,12 @@ export class ReactformComponent implements OnInit {
     this.userDetails = new FormGroup({
       firstName: new FormControl(null,[Validators.required,Validators.minLength(2)]),
       lastName: new FormControl(null,Validators.required),
+      email: new FormControl(null,Validators.required),
+      department: new FormControl(null,Validators.required),
+      prizes : new FormArray([
+        new FormControl(null),
+        new FormControl(null),
+      ])
     })
   }
   onSubmit (){
@@ -23,5 +29,14 @@ export class ReactformComponent implements OnInit {
   }
   get firstName(){
     return this.userDetails.get('firstName')!;
+  }
+  get email(){
+    return this.userDetails.get('email')!;
+  }
+  get department(){
+    return this.userDetails.get('department')!;
+  }
+  get allPrizes(){
+    return this.userDetails.get('prizes')! as FormArray;
   }
 }
